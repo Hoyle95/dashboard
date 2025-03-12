@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Dashboard</title>
+		<meta name="description" content="A customizable dashboard with theme options, search, bookmarks, and widgets. Set it as your homepage for quick access.">
+		<meta name="author" content="Matt Hoyle">
+
+		<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="./css/fontawesome.min.css">
+		<link rel="stylesheet" href="./css/solid.min.css">
+		<link rel="stylesheet" href="./css/brands.min.css">
+		<link rel="stylesheet" href="./css/main.css">
+		<script src="./js/main.js"></script>
+	</head>
+
+	<body>
+		<div id="loading">
+			<i class="fa-solid fa-gear fa-spin"></i>
+		</div>
+
+		<main>
+			<section id="search">
+				<input id="searchInput" type="text" autofocus>
+				<div id="search-button" onclick="search();"><i class="fa-solid fa-magnifying-glass"></i></div>
+				<div id="search-selector"><img class="icon" id="selected" src=""><i class="fa-solid fa-caret-down"></i>
+					<div id="search-dropdown">
+						<img class="icon" src="./images/ddg.ico" onclick="selectSE('ddg');">
+						<img class="icon" src="./images/google.ico" onclick="selectSE('google');">
+						<img class="icon" src="./images/youtube.ico" onclick="selectSE('youtube');">
+						<img class="icon" src="./images/reddit.ico" onclick="selectSE('reddit');">
+						<img class="icon" src="./images/github.ico" onclick="selectSE('github');">
+					</div>
+				</div>
+			</section>
+			<section id="clock">
+				<div id="clockValue"></div>
+				<div id="dateValue"></div>
+			</section>
+		</main>
+	</body>
+</html>

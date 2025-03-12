@@ -1,0 +1,20 @@
+@keyframes dropdown {
+	0% { transform: translateY(-100px);}
+	100% { transform: translateY(0);}
+}
+
+@keyframes dropup {
+	0% { transform: translateY(100px);}
+	100% { transform: translateY(0);}
+}
+
+@keyframes fadein {
+	0% { opacity:0;}
+	100% { opacity:1;}
+}
+
+@keyframes shake {
+	0%, 100% { transform: translateX(0) rotate(0deg);}
+	25%, 75% { transform: translateX(5px) rotate(5deg); }
+	50% { transform: translateX(-5px) rotate(-5deg);}
+}
