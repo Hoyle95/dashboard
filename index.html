@@ -22,6 +22,22 @@
 			<i class="fa-solid fa-gear fa-spin"></i>
 		</div>
 
+		<div id="settingsPanel">
+			<form id="settingsForm">
+				<label>Clock type: </label>
+				<select name="clockType">
+					<option value="12">12 Hour AM/PM</option>
+					<option value="24">24 Hour</option>
+				</select>
+				<br>
+				<label>Custom background image link:</label>
+				<input type="text" name="bg">
+				<label>NOTE: the link must be HTTPS & end in a supported file type.</label>
+				<br>
+				<input type="submit" value="save">
+			</form>
+		</div>
+
 		<main>
 			<section id="search">
 				<input id="searchInput" type="text" autofocus>
@@ -30,11 +46,13 @@
 					<div id="search-dropdown">
 						<img class="icon" src="./images/ddg.ico" onclick="selectSE('ddg');">
 						<img class="icon" src="./images/google.ico" onclick="selectSE('google');">
+						<img class="icon" src="./images/pixabay.ico" onclick="selectSE('pixabay');">
 						<img class="icon" src="./images/youtube.ico" onclick="selectSE('youtube');">
 						<img class="icon" src="./images/reddit.ico" onclick="selectSE('reddit');">
 						<img class="icon" src="./images/github.ico" onclick="selectSE('github');">
 					</div>
 				</div>
+				<i id="settingsButton" class="fa-solid fa-gear"></i>
 			</section>
 			<section id="clock">
 				<div id="clockValue"></div>
