@@ -1,71 +1,102 @@
 <!doctype html>
 
 <html lang="en">
-	<head>
-		<script>
-	    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-	    posthog.init('phc_Wkgx8oMysRvT4LAcnqz9JDRxLAIrUpYF12z6UXaV5Jj', {
-	        api_host: 'https://eu.i.posthog.com',
-	        person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-	    })
-		</script>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>Dashboard</title>
-		<meta name="description" content="A customizable dashboard with theme options, search, bookmarks, and widgets. Set it as your homepage for quick access.">
-		<meta name="author" content="Matt Hoyle">
+        <title>Dashboard</title>
+        <meta
+            name="description"
+            content="A customizable dashboard with theme options, search, bookmarks, and widgets. Set it as your homepage for quick access."
+        />
+        <meta name="author" content="Matt Hoyle" />
 
-		<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" href="./css/fontawesome.min.css">
-		<link rel="stylesheet" href="./css/solid.min.css">
-		<link rel="stylesheet" href="./css/brands.min.css">
-		<link rel="stylesheet" href="./css/main.css">
-		<script src="./js/main.js"></script>
-	</head>
+        <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="./css/fontawesome.min.css" />
+        <link rel="stylesheet" href="./css/solid.min.css" />
+        <link rel="stylesheet" href="./css/brands.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <script src="./js/main.js"></script>
+    </head>
 
-	<body>
-		<div id="loading">
-			<i class="fa-solid fa-gear fa-spin"></i>
-		</div>
+    <body>
+        <div id="loading">
+            <i class="fa-solid fa-gear fa-spin"></i>
+        </div>
 
-		<div id="settingsPanel">
-			<form id="settingsForm">
-				<i onclick="toggleDisplay(settingsPanel);" class="fa-solid fa-xmark"></i>
-				<label>Clock type: </label>
-				<select name="clockType">
-					<option value="12">12 Hour AM/PM</option>
-					<option value="24">24 Hour</option>
-				</select>
-				<br>
-				<label>Custom background image link:</label>
-				<input type="text" name="bg">
-				<label>NOTE: the link must be HTTPS & end in a supported file type.</label>
-				<br>
-				<input type="submit" value="save">
-			</form>
-		</div>
+        <div id="settingsPanel">
+            <form id="settingsForm">
+                <i
+                    onclick="toggleDisplay(settingsPanel);"
+                    class="fa-solid fa-xmark"
+                ></i>
+                <label>Clock type: </label>
+                <select name="clockType">
+                    <option value="12">12 Hour AM/PM</option>
+                    <option value="24">24 Hour</option>
+                </select>
+                <br />
+                <label>Custom background image link:</label>
+                <input type="text" name="bg" />
+                <label
+                    >NOTE: the link must be HTTPS & end in a supported file
+                    type.</label
+                >
+                <br />
+                <input type="submit" value="save" />
+            </form>
+        </div>
 
-		<main>
-			<section id="search">
-				<input id="searchInput" type="text" autofocus>
-				<div id="search-button" onclick="search();"><i class="fa-solid fa-magnifying-glass"></i></div>
-				<div id="search-selector"><img class="icon" id="selected" src=""><i class="fa-solid fa-caret-down"></i>
-					<div id="search-dropdown">
-						<img class="icon" src="./images/ddg.ico" onclick="selectSE('ddg');">
-						<img class="icon" src="./images/google.ico" onclick="selectSE('google');">
-						<img class="icon" src="./images/pixabay.ico" onclick="selectSE('pixabay');">
-						<img class="icon" src="./images/youtube.ico" onclick="selectSE('youtube');">
-						<img class="icon" src="./images/reddit.ico" onclick="selectSE('reddit');">
-						<img class="icon" src="./images/github.ico" onclick="selectSE('github');">
-					</div>
-				</div>
-				<i id="settingsButton" class="fa-solid fa-gear"></i>
-			</section>
-			<section id="clock">
-				<div id="clockValue"></div>
-				<div id="dateValue"></div>
-			</section>
-		</main>
-	</body>
+        <main>
+            <section id="search">
+                <input id="searchInput" type="text" autofocus />
+                <div id="search-button" onclick="search();">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div id="search-selector">
+                    <img class="icon" id="selected" src="" /><i
+                        class="fa-solid fa-caret-down"
+                    ></i>
+                    <div id="search-dropdown">
+                        <img
+                            class="icon"
+                            src="./images/ddg.ico"
+                            onclick="selectSE('ddg');"
+                        />
+                        <img
+                            class="icon"
+                            src="./images/google.ico"
+                            onclick="selectSE('google');"
+                        />
+                        <img
+                            class="icon"
+                            src="./images/pixabay.ico"
+                            onclick="selectSE('pixabay');"
+                        />
+                        <img
+                            class="icon"
+                            src="./images/youtube.ico"
+                            onclick="selectSE('youtube');"
+                        />
+                        <img
+                            class="icon"
+                            src="./images/reddit.ico"
+                            onclick="selectSE('reddit');"
+                        />
+                        <img
+                            class="icon"
+                            src="./images/github.ico"
+                            onclick="selectSE('github');"
+                        />
+                    </div>
+                </div>
+                <i id="settingsButton" class="fa-solid fa-gear"></i>
+            </section>
+            <section id="clock">
+                <div id="clockValue"></div>
+                <div id="dateValue"></div>
+            </section>
+        </main>
+    </body>
 </html>
